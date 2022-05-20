@@ -9,14 +9,14 @@ describe Account do
     it "will accept money" do
       account = Account.new
       account.deposit_money(10)
-      expect(account.deposit).to include [10, Time.new.strftime("%d/%m/%Y")]
+      expect(account.balance).to eq 10
     end
 
     it " will let you withdraw money" do
       account = Account.new
       account.deposit_money(10)
       account.withdraw_money(5)
-      expect(account.withdraw).to include [5, Time.new.strftime("%d/%m/%Y") ]
+      expect(account.balance).to eq 5
     end
   end
 end
