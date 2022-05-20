@@ -33,8 +33,14 @@ describe Account do
     end
     it " will print a bank statment for withdrawal" do
       account = Account.new
+      account.deposit_money(10)
       account.withdraw_money(5)
-      expect { account.print_statment }.to output( /\d{2} \d{2} \d{4} || 5 ||  || -5/).to_stdout
+      expect { account.print_statment }.to output( /\d{2} \d{2} \d{4} || 5 ||  || 5/).to_stdout
+    end
+
+    it " will raise an error if there are no sufficent fund in the account for withdrwal " do
+      account = Account.new
+      expect { account.withdraw_money(5) }.to raise_error ("Insufficient balance")
     end
   end
 end
