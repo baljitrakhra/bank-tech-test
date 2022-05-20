@@ -15,6 +15,28 @@ I am working on this alone.
 * Account statement (date, amount, balance) printing.
 * Data can be kept in memory (it doesn't need to be stored to a database or anything).
 
+### User needs
+```
+As a customer
+So that I can save my money
+I want to be able to deposit money into my bank account
+```
+```
+As a customer
+So that I can spend my money
+I want to be able to withdraw money from my bank account
+```
+```
+As a customer
+So that I can review my spending
+I want to be able to print a bank statement
+```
+```
+As a customer
+So that I can review my spending in detail
+I want my bank statment to include : transaction date, credit or debit amount and balance after every transaction 
+```
+
 ### Acceptance criteria
 
 **Given** a client makes a deposit of 1000 on 10-01-2023  
