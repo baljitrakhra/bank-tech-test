@@ -1,10 +1,15 @@
 require 'account'
 
 describe Account do
-  context "opening a bank account" do
+  context "bank account" do
     it "is initialised with a zero balance" do
       account = Account.new
       expect(account.balance).to equal 0
+    end
+    it "will accept money" do
+      account = Account.new
+      account.deposit_money(10)
+      expect(account.balance).to equal 10
     end
   end
 end
