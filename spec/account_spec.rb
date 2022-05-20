@@ -9,7 +9,7 @@ describe Account do
     it "will accept money" do
       account = Account.new
       account.deposit_money(10)
-      expect(account.balance).to equal 10
+      expect(account.deposit).to include [10, Time.new.strftime("%d/%m/%Y")]
     end
   end
 end
