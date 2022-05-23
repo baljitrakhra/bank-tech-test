@@ -33,7 +33,7 @@ class Account
   end
 
   def push_withdrawl_to_statment(debit: nil, balance: nil)
-    amount = Transaction.new(debit: '%.2f' %  debit, balance: '%.2f' %  balance)
+    amount = Transaction.new(debit: '%.2f' % debit, balance: '%.2f' % balance)
     @bank_statment.unshift(amount.display)
   end
 
