@@ -7,7 +7,7 @@ class Transaction
   end
   
   def display
-    "#{time} || #{@credit}|| #{@debit}|| "
+    "#{time} || #{@credit}|| #{@debit}|| #{@balance} "
   end
 
   def time
