@@ -13,7 +13,6 @@ class Account
   end
 
   def withdraw_money(amount)
-    # will need to add a edge case to check balance before withdrwing
     fail 'Insufficient balance' if (@balance < amount)
     @balance -= amount
     time = Time.new.strftime("%d/%m/%Y")
