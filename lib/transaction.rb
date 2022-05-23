@@ -1,10 +1,13 @@
 class Transaction
-  def initialize
+  def initialize(credit: nil, debit: nil, balance: nil)
     @time = Time.new
+    @debit = debit
+    @credit = credit
+    @balance = balance
   end
   
   def display
-    "#{time} || || || "
+    "#{time} || #{@credit}|| #{@debit}|| "
   end
 
   def time
