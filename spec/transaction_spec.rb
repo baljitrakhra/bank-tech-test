@@ -17,5 +17,9 @@ describe Transaction do
       balance_of_statment = Transaction.new(balance: 30.0)
       expect(balance_of_statment.display).to eq "#{Time.new.strftime("%d/%m/%Y")} || || || 30.0 "
     end
+    it ' show full transaction of the bank statment' do
+      statment = Transaction.new(credit: 5.0, debit: 15.0, balance: 70.0)
+      expect(statment.display).to eq "#{Time.new.strftime("%d/%m/%Y")} || 5.0|| 15.0|| 70.0 "
+    end
   end
 end
