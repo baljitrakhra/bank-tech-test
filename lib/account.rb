@@ -1,5 +1,5 @@
-require 'print'
-require 'transaction'
+require_relative './print'
+require_relative './transaction'
 class Account
   attr_reader :balance, :bank_statment
 
@@ -11,33 +11,30 @@ class Account
 
   def deposit_money(amount)
     @balance += amount
-    time = Time.new.strftime("%d/%m/%Y")
-    @bank_statment.push({ "time": time, "credit": amount.to_f, "debit": "", "balance": @balance })
+    push_deposit_to_statment(credit: amount, balance: @balance)
   end
-
-  # def push_deposit_to_statment(credit: nil, balance: nil)
-  #   amount = Transaction.new(credit: credit, balance: nil)
-  #   @bank_statment.unshift(amount)
-  # end
 
   def withdraw_money(amount)
     fail 'Insufficient balance' if (@balance < amount)
     @balance -= amount
-    time = Time.new.strftime("%d/%m/%Y")
-    @bank_statment.push({ "time": time, "credit": "", "debit": amount.to_f, "balance": @balance })
+    push_withdrawl_to_statment(debit: amount, balance: @balance)
   end
-
-  # def push_withdrawl_to_statment
-  #   amount = Transaction.new(debit: debit, balance: balance)
-  #   @bank_statment.unshift(amount)
-  # end
 
   def print_statment
     @print_class.print("date || credit || debit || balance")
     @print_class.print(@bank_statment)
-    # @bank_statment.each do |activity|
-    #   print " #{activity[:time]} || #{activity[:credit]} || #{activity[:debit]} || #{activity[:balance]} \n"
-    # end
+  end
+
+  private 
+
+  def push_deposit_to_statment(credit: nil, balance: nil)
+    amount = Transaction.new(credit: '%.2f' % credit, balance: '%.2f' % balance)
+    @bank_statment.unshift(amount.display)
+  end
+
+  def push_withdrawl_to_statment(debit: nil, balance: nil)
+    amount = Transaction.new(debit: '%.2f' %  debit, balance: '%.2f' %  balance)
+    @bank_statment.unshift(amount.display)
   end
 
 end
