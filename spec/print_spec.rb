@@ -6,7 +6,7 @@ describe Print do
     end
     it 'prints an each element of an array and add a new line' do
       array = ["this", "is", "a", "string"]
-      expect { subject.print(array) }.to output("this\nis\n\a\nstring\n")
+      expect { subject.print(array) }.to output("this\nis\na\nstring\n").to_stdout
     end
   end
 end
